@@ -1,0 +1,41 @@
+.card {
+  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+}
+
+button {
+  background: #8ea5eb;
+}
+
+h1 {
+  font-family: Poppins;
+  padding-left: 50px;
+}
+h2 {
+  font-family: Poppins;
+  padding-left: 50px;
+}
+h3 {
+  font-family: Poppins;
+  text-align: center;
+}
+
+.weather-today .card-body {
+  background: #fff;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  font-family: Poppins;
+}
+
+form {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+button-addon2 {
+  display: block;
+  margin: 0 auto;
+}
