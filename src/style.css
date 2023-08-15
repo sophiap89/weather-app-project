@@ -2,10 +2,6 @@
   background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 }
 
-button {
-  background: #8ea5eb;
-}
-
 h1 {
   font-family: Poppins;
   padding-left: 50px;
@@ -42,4 +38,8 @@ button-addon2 {
 
 a {
   text-align: left;
+}
+
+.container {
+  padding: 20px;
 }

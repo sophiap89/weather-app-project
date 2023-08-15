@@ -18,27 +18,34 @@ h5.innerHTML = `${currentDay}`;
 function form(event) {
   event.preventDefault();
   let input = document.querySelector("#search-engine");
-  let apiKey = "bd3bb6534458ba51b48c49f5155745b6";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=${apiKey}&units=metric`;
+  let apiKey = "a328fb05b551oa8463fbf10t61b55fb0";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${input.value}&key=${apiKey}&units=metric`;
 
   axios.get(`${apiUrl}`).then(showTemp);
 }
 let click = document.querySelector("form");
 click.addEventListener("submit", form);
 
+function changeIcon(response) {
+  let icon = response.data.condition.icon;
+  let iconUrl = `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${icon}.png`;
+  let weatherIcon = document.querySelector("#weather-icon");
+  weatherIcon.src = iconUrl;
+}
+
 function showTemp(response) {
-  let temp = Math.round(response.data.main.temp);
+  let temp = Math.round(response.data.temperature.current);
   let tempElement = document.querySelector("#temp-display");
   tempElement.innerHTML = `${temp}`;
   let newCity = document.querySelector("#city-weather");
-  newCity.innerHTML = response.data.name;
+  newCity.innerHTML = response.data.city;
 }
 
 function currentLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-  let apiKey = "bd3bb6534458ba51b48c49f5155745b6";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+  let apiKey = "a328fb05b551oa8463fbf10t61b55fb0";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${longitude}&lat=${latitude}&key=${apiKey}&units=metric`;
 
   axios.get(`${apiUrl}`).then(showTemp);
 }
