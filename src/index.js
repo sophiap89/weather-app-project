@@ -35,7 +35,7 @@ function changeIcon(response) {
 
 function showTemp(response) {
   let temp = Math.round(response.data.temperature.current);
-  let tempElement = document.querySelector("#temp-display");
+  let tempElement = document.querySelector("#temp-celsius");
   tempElement.innerHTML = `${temp}`;
   let newCity = document.querySelector("#city-weather");
   newCity.innerHTML = response.data.city;
@@ -60,3 +60,29 @@ function locationButton() {
 
 let submit = document.querySelector("#current-location-button");
 submit.addEventListener("click", locationButton);
+
+let celsiusLink = document.querySelector("#celsius-link");
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+let tempCelsiusElement = document.querySelector("#temp-celsius");
+let tempFahrenheitElement = document.querySelector("#temp-fahrenheit");
+let isCelsius = true;
+
+celsiusLink.addEventListener("click", function () {
+  if (!isCelsius) {
+    let tempFahrenheit = tempFahrenheitElement.textContent;
+    let tempCelsius = ((tempFahrenheit - 32) * 5) / 9;
+    tempCelsiusElement.textContent = Math.round(tempCelsius);
+    tempFahrenheitElement.textContent = ""; // Clear Fahrenheit value
+    isCelsius = true;
+  }
+});
+
+fahrenheitLink.addEventListener("click", function () {
+  if (isCelsius) {
+    let tempCelsius = tempCelsiusElement.textContent;
+    let tempFahrenheit = (tempCelsius * 9) / 5 + 32;
+    tempFahrenheitElement.textContent = Math.round(tempFahrenheit);
+    tempCelsiusElement.textContent = ""; // Clear Celsius value
+    isCelsius = false;
+  }
+});
