@@ -42,6 +42,9 @@ function showTemp(response) {
   let forecastDescription = response.data.condition.description;
   let forecast = document.querySelector("#weather-description");
   forecast.innerHTML = forecastDescription;
+  let windSpeed = Math.round(response.data.wind.speed);
+  let speed = document.querySelector("#speed");
+  speed.innerHTML = windSpeed;
   changeIcon(response);
 }
 
