@@ -39,6 +39,10 @@ function showTemp(response) {
   tempElement.innerHTML = `${temp}`;
   let newCity = document.querySelector("#city-weather");
   newCity.innerHTML = response.data.city;
+  let forecastDescription = response.data.condition.description;
+  let forecast = document.querySelector("#weather-description");
+  forecast.innerHTML = forecastDescription;
+  changeIcon(response);
 }
 
 function currentLocation(position) {
@@ -53,7 +57,6 @@ function currentLocation(position) {
 function locationButton() {
   navigator.geolocation.getCurrentPosition(currentLocation);
 }
-navigator.geolocation.getCurrentPosition(currentLocation);
 
 let submit = document.querySelector("#current-location-button");
 submit.addEventListener("click", locationButton);

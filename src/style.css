@@ -25,21 +25,16 @@ p {
   font-family: Poppins;
 }
 
-form {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
-}
-
-button-addon2 {
-  display: block;
-  margin: 0 auto;
-}
-
 a {
   text-align: left;
 }
 
-.container {
-  padding: 20px;
+.weather-app {
+  margin: 0 auto;
+  max-width: 80%;
+  margin-top: 25px;
+}
+
+.card-text {
+  text-transform: capitalize;
 }
